@@ -9,9 +9,16 @@
   },
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "@swc/helpers": "~0.5.2",
+    "@tanstack/react-query": "^5.13.4",
+    "@tanstack/react-query-devtools": "^5.13.5",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-redux": "^9.0.4",
+    "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
     "@nx/cypress": "17.2.3",

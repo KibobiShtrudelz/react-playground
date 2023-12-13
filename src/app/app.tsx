@@ -3,7 +3,7 @@ import styles from './app.module.scss';
 
 export function App() {
   return (
-    <div>
+    <div className={styles.app}>
       <h1>WAZA</h1>
     </div>
   );
