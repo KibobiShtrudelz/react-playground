@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { App } from './app/app';
-import { Home, About, Contact } from './components';
 
 import { store } from './redux/store';
 
@@ -22,12 +21,9 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/" element={<About />} />
-            <Route path="/" element={<Contact />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<App />} />
           </Routes>
-        <App />
+        </Router>
 
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

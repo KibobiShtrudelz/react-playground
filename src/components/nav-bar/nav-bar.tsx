@@ -4,16 +4,14 @@ import styles from './nav-bar.module.scss';
 
 export function NavBar() {
   return (
-    <div className={styles.navBar}>
-      <div className={styles.logo}>LOGO</div>
-
+    <nav className={styles.navBar}>
       <div className={styles.navLinks}>
-        <Link to="/">Home</Link>
+        <Link to="/home">Home</Link>
+
         <Link to="/about">About</Link>
+
         <Link to="/contact">Contact</Link>
       </div>
-    </div>
+    </nav>
   );
 }
-
-export default NavBar;

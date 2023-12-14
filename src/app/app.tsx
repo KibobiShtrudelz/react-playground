@@ -1,21 +1,32 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+import { Home, About, NavBar, Header, Footer, Contact } from '../components';
+
 import styles from './app.module.scss';
 
 export function App() {
+  const location = useLocation();
+
   return (
     <div className={styles.app}>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-      <div>10</div>
-      <div>11</div>
-      <div>12</div>
+      <Header />
+
+      <NavBar />
+
+      <div className={styles.container}>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/home" element={<Home />} />
+
+            <Route path="/about" element={<About />} />
+
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </AnimatePresence>
+      </div>
+
+      <Footer />
     </div>
   );
 }
