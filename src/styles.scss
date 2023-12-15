@@ -1,11 +1,13 @@
 *,
 *::before,
 *::after {
+  word-break: break-all;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  border: 1px dashed blue;
+  // border: 10px solid blue;
 
   position: absolute;
   inset: 0;

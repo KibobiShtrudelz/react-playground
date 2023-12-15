@@ -10,7 +10,7 @@ export function Header() {
       </section>
 
       <section className={styles.auth}>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/sign-in">Sign In</NavLink>
       </section>
     </header>
   );

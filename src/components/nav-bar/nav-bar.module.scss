@@ -1,5 +1,5 @@
 .navBar {
-  border: 2px dashed;
+  border: 2px solid;
 
   grid-column: full-width;
 
@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: flex-end;
 
+  padding: 16px;
   height: 100px;
-  padding-inline: 16px;
 
   .navLinks {
     display: flex;

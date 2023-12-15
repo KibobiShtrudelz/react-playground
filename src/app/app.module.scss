@@ -1,33 +1,10 @@
 .app {
-  main {
-    border: 1px dashed red;
+  position: absolute;
+  inset: 0;
 
-    --padding-inline: 16px;
-    --content-max-width: 900px;
-    --breakout-max-width: 1200px;
-    --breakout-size: calc(
-      (var(--breakout-max-width) - var(--content-max-width)) / 2
-    );
-
-    display: grid;
-    grid-template-columns:
-      [full-width-start] minmax(var(--padding-inline), 1fr)
-      [breakout-start] minmax(0, var(--breakout-size))
-      [content-start] min(
-        100% - (var(--padding-inline) * 2),
-        var(--content-max-width)
-      )
-      [content-end]
-      minmax(0, var(--breakout-size)) [breakout-end]
-      minmax(var(--padding-inline), 1fr) [full-width-end];
-
-    overflow-y: auto;
-    height: calc(100vh - 100px);
-
-    .content {
-      grid-column: content;
-
-      padding-block: 16px;
-    }
-  }
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'header'
+    'main';
 }

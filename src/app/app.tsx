@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Home, About, NavBar, Header, Footer, Contact } from '../components';
+import { Main, Header } from '../components';
 
 import styles from './app.module.scss';
 
@@ -23,19 +23,7 @@ export function App() {
     <div className={styles.app}>
       <Header />
 
-      <main>
-        <NavBar />
-
-        <div className={styles.content}>
-          <Routes location={location} key={location.pathname}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-
-        <Footer />
-      </main>
+      <Main />
     </div>
   );
 }

@@ -1,0 +1,13 @@
+.notFound {
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  inset: 0;
+
+  .content {
+    display: grid;
+    gap: 16px;
+    place-items: center;
+  }
+}

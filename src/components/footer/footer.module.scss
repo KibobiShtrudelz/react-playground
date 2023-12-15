@@ -1,10 +1,13 @@
 .footer {
+  border: 2px solid;
+
   grid-column: full-width;
 
   display: flex;
   align-items: center;
 
+  padding: 16px;
   height: 300px;
-  padding-inline: 16px;
+  margin-top: auto;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
 }
