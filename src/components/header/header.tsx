@@ -1,9 +1,17 @@
+import { NavLink } from 'react-router-dom';
 import styles from './header.module.scss';
 
 export function Header() {
   return (
     <header className={styles.header}>
-      <h1>LOGO</h1>
+      <section className={styles.logoWrapper}>
+        <span>Physique</span>
+        <span>Factory</span>
+      </section>
+
+      <section className={styles.auth}>
+        <NavLink to="/login">Login</NavLink>
+      </section>
     </header>
   );
 }
