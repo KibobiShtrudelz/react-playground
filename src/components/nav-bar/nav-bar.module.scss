@@ -1,13 +1,21 @@
 .navBar {
-  grid-column: content;
+  border: 2px dashed;
+
+  grid-column: full-width;
 
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 
-  padding-block: 1rem;
+  height: 100px;
+  padding-inline: 16px;
 
   .navLinks {
     display: flex;
-    gap: 8px;
+    gap: 16px;
+
+    & > a {
+      font-size: 1.5rem;
+    }
   }
 }
