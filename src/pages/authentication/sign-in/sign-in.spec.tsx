@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { PublicRoutes } from './public-routes';
+import SignIn from './sign-in';
 
-describe('PublicRoutes', () => {
+describe('SignIn', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<PublicRoutes />);
+    const { baseElement } = render(<SignIn />);
     expect(baseElement).toBeTruthy();
   });
 });

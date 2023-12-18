@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { PrivateRoutes } from './private-routes';
+import SignUp from './sign-up';
 
-describe('PrivateRoutes', () => {
+describe('SignUp', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<PrivateRoutes />);
+    const { baseElement } = render(<SignUp />);
     expect(baseElement).toBeTruthy();
   });
 });

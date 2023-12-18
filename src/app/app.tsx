@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Main, Header } from '../components';
 
+import { pathnames } from '../constants';
+
 import styles from './app.module.scss';
 
 const { useEffect } = React;
@@ -14,8 +16,8 @@ export function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname === '/') {
-      navigate('/home');
+    if (location.pathname === pathnames.root) {
+      navigate(pathnames.public.home);
     }
   }, [location.pathname, navigate]);
 
