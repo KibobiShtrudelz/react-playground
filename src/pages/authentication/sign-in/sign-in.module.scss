@@ -18,17 +18,16 @@
     border-radius: 6px;
     background-color: #1a1a1a;
 
+    h1 {
+      text-align: center;
+    }
+
     .signInForm {
       display: flex;
-      gap: 1rem;
+      gap: 32px;
       flex-direction: column;
 
-      margin-top: 16px;
-
-      .input {
-        width: 240px;
-        height: 42px;
-      }
+      margin-top: 32px;
     }
   }
 }

@@ -1,5 +1,4 @@
-import { Button } from 'primereact/button';
-import { InputText } from 'primereact/inputtext';
+import { Button, Password, InputText } from '../../../components';
 
 import styles from './sign-in.module.scss';
 
@@ -15,11 +14,21 @@ export function SignIn() {
         </h1>
 
         <form className={styles.signInForm}>
-          <InputText className={styles.input} />
+          <InputText
+            id="email"
+            label="E-mail"
+            inputMode="email"
+            inputSize="large"
+          />
 
-          <InputText className={styles.input} />
+          <Password
+            id="password"
+            label="Password"
+            inputSize="large"
+            feedback={false}
+          />
 
-          <Button label="Pump it" />
+          <Button label="Pump it" size="large" />
         </form>
       </div>
     </div>
