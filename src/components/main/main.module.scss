@@ -1,5 +1,5 @@
 .main {
-  border: 5px solid orange;
+  // border: 5px solid orange;
 
   grid-area: main;
 
@@ -27,8 +27,6 @@
   }
 
   .content {
-    border: 3px solid blue;
-
     &.common {
       grid-column: content;
 

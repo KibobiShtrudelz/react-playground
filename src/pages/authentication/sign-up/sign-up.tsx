@@ -1,14 +1,9 @@
 import styles from './sign-up.module.scss';
 
-/* eslint-disable-next-line */
-export interface SignUpProps {}
-
-export function SignUp(props: SignUpProps) {
+export function SignUp() {
   return (
-    <div className={styles['container']}>
+    <div className={styles.signUp}>
       <h1>Welcome to SignUp!</h1>
     </div>
   );
 }
-
-export default SignUp;
