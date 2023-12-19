@@ -9,11 +9,26 @@
   background-position: center;
   background-image: url('../../../assets/images/sign-in-bg.jpg');
 
-  .signInForm {
-    width: 500px;
-    opacity: 0.5;
-    height: 500px;
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    // opacity: 0.9;
+    padding: 24px;
     border-radius: 6px;
-    background-color: #fff;
+    background-color: #1a1a1a;
+
+    .signInForm {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+
+      margin-top: 16px;
+
+      .input {
+        width: 240px;
+        height: 42px;
+      }
+    }
   }
 }
