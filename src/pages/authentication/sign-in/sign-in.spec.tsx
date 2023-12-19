@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import SignIn from './sign-in';
+import { SignIn } from './sign-in';
 
 describe('SignIn', () => {
   it('should render successfully', () => {

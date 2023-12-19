@@ -5,6 +5,7 @@ export const pathnames = {
     signUp: '/sign-up',
     signIn: '/sign-in',
     signOut: '/sign-out',
+    forgetPassword: '/forget-password',
   },
 
   public: {

@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+import clsx from 'clsx';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Main, Header } from '../components';
 
+import { useLayout } from '../hooks';
 import { pathnames } from '../constants';
 
 import styles from './app.module.scss';
@@ -15,6 +17,8 @@ export function App() {
 
   const navigate = useNavigate();
 
+  const layoutType = useLayout();
+
   useEffect(() => {
     if (location.pathname === pathnames.root) {
       navigate(pathnames.public.home);
@@ -22,8 +26,8 @@ export function App() {
   }, [location.pathname, navigate]);
 
   return (
-    <div className={styles.app}>
-      <Header />
+    <div className={clsx(styles.app, styles[layoutType])}>
+      {layoutType === 'common' && <Header />}
 
       <Main />
     </div>

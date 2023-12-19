@@ -1,9 +1,11 @@
+import clsx from 'clsx';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { ProtectedRoute } from '../routing';
 import { NavBar, Footer } from '../../components';
 import { Home, About, SignUp, SignIn, Contact, Dashboard } from '../../pages';
 
+import { useLayout } from '../../hooks';
 import { pathnames } from '../../constants';
 
 import styles from './main.module.scss';
@@ -11,11 +13,13 @@ import styles from './main.module.scss';
 export function Main() {
   const location = useLocation();
 
-  return (
-    <main className={styles.main}>
-      <NavBar />
+  const layoutType = useLayout();
 
-      <div className={styles.content}>
+  return (
+    <main className={clsx(styles.main, styles[layoutType])}>
+      {layoutType === 'common' && <NavBar />}
+
+      <div className={clsx(styles.content, styles[layoutType])}>
         <Routes location={location} key={location.pathname}>
           {/* Authentication routes */}
           <Route path={pathnames.authentication.signUp} element={<SignUp />} />
@@ -41,7 +45,7 @@ export function Main() {
         </Routes>
       </div>
 
-      <Footer />
+      {layoutType === 'common' && <Footer />}
     </main>
   );
 }
