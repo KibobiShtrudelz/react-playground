@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, FieldErrors } from 'react-hook-form';
 
 import { Button, Password, InputText } from '../../../components';
 
@@ -10,17 +10,27 @@ import styles from './sign-in.module.scss';
 
 import signInPromoImage from '../../../assets/images/sign-in-promo.jpeg';
 
+type SignInFormData = {
+  email: string;
+  password: string;
+};
+
 export function SignIn() {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      email: '',
-      password: '',
-    },
+  } = useForm<SignInFormData>({
+    shouldFocusError: true,
+    defaultValues: { email: '', password: '' },
   });
+
+  const getFormErrorMessage = (name: keyof SignInFormData) =>
+    errors[name] ? (
+      <small className="p-error">{errors[name]?.message}</small>
+    ) : (
+      <small className="p-error">&nbsp;</small>
+    );
 
   return (
     <div className={styles.signIn}>
@@ -46,7 +56,7 @@ export function SignIn() {
             <Controller
               name="email"
               control={control}
-              rules={{ required: 'E-mail is required.' }}
+              rules={{ required: 'E-mail is required.', deps: 'email' }}
               render={({ field, fieldState }) => (
                 <>
                   <InputText
@@ -55,42 +65,33 @@ export function SignIn() {
                     inputMode="email"
                     inputSize="large"
                     value={field.value}
-                    error={errors.email}
                     className={clsx(fieldState.error && 'p-invalid')}
                     onChange={(e) => field.onChange(e.target.value)}
                   />
-
-                  {/* <label
-                    htmlFor={field.name}
-                    className={clsx(errors.value && 'p-error')}
-                  ></label>
-                  <span className="p-float-label">
-                    <InputText
-                      id={field.name}
-                      value={field.value}
-                      className={clsx(fieldState.error && 'p-invalid')}
-                      onChange={(e) => field.onChange(e.target.value)}
-                    />
-                    <label htmlFor={field.name}>Name - Surname</label>
-                  </span> */}
 
                   {getFormErrorMessage(field.name)}
                 </>
               )}
             />
 
-            {/* <InputText
-              id="email"
-              label="E-mail"
-              inputMode="email"
-              inputSize="large"
-            /> */}
-
-            <Password
-              id="password"
-              label="Password"
-              inputSize="large"
-              feedback={false}
+            <Controller
+              name="password"
+              control={control}
+              rules={{ required: 'Password is required.', deps: 'password' }}
+              render={({ field, fieldState }) => (
+                <>
+                  <Password
+                    id={field.name}
+                    label="Password"
+                    inputSize="large"
+                    feedback={false}
+                    value={field.value}
+                    error={errors.password}
+                    onChange={(e) => field.onChange(e.target.value)}
+                  />
+                  {getFormErrorMessage(field.name)}
+                </>
+              )}
             />
 
             <Button
