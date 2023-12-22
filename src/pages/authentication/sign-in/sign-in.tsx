@@ -1,4 +1,6 @@
+import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import { useForm, Controller } from 'react-hook-form';
 
 import { Button, Password, InputText } from '../../../components';
 
@@ -9,6 +11,17 @@ import styles from './sign-in.module.scss';
 import signInPromoImage from '../../../assets/images/sign-in-promo.jpeg';
 
 export function SignIn() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+
   return (
     <div className={styles.signIn}>
       <div className={styles.content}>
@@ -26,16 +39,52 @@ export function SignIn() {
 
           <form
             className={styles.signInForm}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
+            onSubmit={handleSubmit((data) => {
+              console.log('sain in deita >>>', data);
+            })}
           >
-            <InputText
+            <Controller
+              name="email"
+              control={control}
+              rules={{ required: 'E-mail is required.' }}
+              render={({ field, fieldState }) => (
+                <>
+                  <InputText
+                    label="E-mail"
+                    id={field.name}
+                    inputMode="email"
+                    inputSize="large"
+                    value={field.value}
+                    error={errors.email}
+                    className={clsx(fieldState.error && 'p-invalid')}
+                    onChange={(e) => field.onChange(e.target.value)}
+                  />
+
+                  {/* <label
+                    htmlFor={field.name}
+                    className={clsx(errors.value && 'p-error')}
+                  ></label>
+                  <span className="p-float-label">
+                    <InputText
+                      id={field.name}
+                      value={field.value}
+                      className={clsx(fieldState.error && 'p-invalid')}
+                      onChange={(e) => field.onChange(e.target.value)}
+                    />
+                    <label htmlFor={field.name}>Name - Surname</label>
+                  </span> */}
+
+                  {getFormErrorMessage(field.name)}
+                </>
+              )}
+            />
+
+            {/* <InputText
               id="email"
               label="E-mail"
               inputMode="email"
               inputSize="large"
-            />
+            /> */}
 
             <Password
               id="password"
@@ -44,7 +93,14 @@ export function SignIn() {
               feedback={false}
             />
 
-            <Button label="Pump it" size="large" />
+            <Button
+              type="submit"
+              raised
+              size="large"
+              label="Pump it"
+              iconPos="right"
+              icon="pi pi-spin pi-spinner"
+            />
           </form>
 
           <small className={styles.signUpText}>

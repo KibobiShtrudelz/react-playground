@@ -3,7 +3,11 @@ import styles from './sign-up.module.scss';
 export function SignUp() {
   return (
     <div className={styles.signUp}>
-      <h1>Welcome to SignUp!</h1>
+      <div className={styles.content}>
+        <h1>Sign Up and Become The Best!</h1>
+
+        <form action=""></form>
+      </div>
     </div>
   );
 }
