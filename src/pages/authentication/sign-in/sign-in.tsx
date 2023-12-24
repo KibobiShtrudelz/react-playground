@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { useForm, Controller, FieldErrors } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 import { Button, Password, InputText } from '../../../components';
 
-import { pathnames } from '../../../constants';
+import { regex, pathnames } from '../../../constants';
 
 import styles from './sign-in.module.scss';
 
@@ -56,7 +56,10 @@ export function SignIn() {
             <Controller
               name="email"
               control={control}
-              rules={{ required: 'E-mail is required.', deps: 'email' }}
+              rules={{
+                pattern: regex.email,
+                required: 'E-mail is required.',
+              }}
               render={({ field, fieldState }) => (
                 <>
                   <InputText
@@ -77,7 +80,7 @@ export function SignIn() {
             <Controller
               name="password"
               control={control}
-              rules={{ required: 'Password is required.', deps: 'password' }}
+              rules={{ required: 'Password is required.' }}
               render={({ field, fieldState }) => (
                 <>
                   <Password
