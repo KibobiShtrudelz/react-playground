@@ -1,5 +1,7 @@
+import * as React from 'react';
+
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 
 import { Button, Password, InputText } from '../../../components';
@@ -15,15 +17,32 @@ type SignInFormData = {
   password: string;
 };
 
+const { useState } = React;
+
 export function SignIn() {
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
+
     formState: { errors },
   } = useForm<SignInFormData>({
     shouldFocusError: true,
     defaultValues: { email: '', password: '' },
   });
+
+  const fakeSubmitEndpoint = (data: SignInFormData) => {
+    setLoading(true);
+
+    setTimeout(() => {
+      Promise.resolve(data);
+      setLoading(false);
+      navigate(pathnames.public.home);
+    }, 2000);
+  };
 
   const getFormErrorMessage = (name: keyof SignInFormData) =>
     errors[name] ? (
@@ -50,23 +69,27 @@ export function SignIn() {
           <form
             className={styles.signInForm}
             onSubmit={handleSubmit((data) => {
-              console.log('sain in deita >>>', data);
+              fakeSubmitEndpoint(data);
             })}
           >
             <Controller
               name="email"
               control={control}
               rules={{
-                pattern: regex.email,
                 required: 'E-mail is required.',
+                pattern: {
+                  value: regex.email,
+                  message: 'Incorrect email format',
+                },
               }}
               render={({ field, fieldState }) => (
                 <>
                   <InputText
-                    label="E-mail"
+                    label="Email"
                     id={field.name}
                     inputMode="email"
                     inputSize="large"
+                    disabled={loading}
                     value={field.value}
                     className={clsx(fieldState.error && 'p-invalid')}
                     onChange={(e) => field.onChange(e.target.value)}
@@ -88,6 +111,7 @@ export function SignIn() {
                     label="Password"
                     inputSize="large"
                     feedback={false}
+                    disabled={loading}
                     value={field.value}
                     error={errors.password}
                     onChange={(e) => field.onChange(e.target.value)}
@@ -103,7 +127,8 @@ export function SignIn() {
               size="large"
               label="Pump it"
               iconPos="right"
-              icon="pi pi-spin pi-spinner"
+              disabled={loading}
+              icon={loading ? 'pi pi-spin pi-spinner' : ''}
             />
           </form>
 
