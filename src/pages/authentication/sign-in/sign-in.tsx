@@ -5,7 +5,7 @@ import { z } from 'zod';
 // import * as yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button, Password, InputText } from '../../../components';
