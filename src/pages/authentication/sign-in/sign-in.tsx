@@ -1,8 +1,12 @@
 import * as React from 'react';
 
 import clsx from 'clsx';
+import { z } from 'zod';
+// import * as yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button, Password, InputText } from '../../../components';
 
@@ -18,6 +22,18 @@ type SignInFormData = {
 };
 
 const { useState } = React;
+const signInSchema = z
+  .object({
+    email: z.string().email(),
+    password: z.string(),
+  })
+  .required();
+// const signInSchema = yup
+//   .object({
+//     email: yup.string().email().required(),
+//     password: yup.string().required(),
+//   })
+//   .required();
 
 export function SignIn() {
   const [loading, setLoading] = useState(false);
@@ -29,7 +45,9 @@ export function SignIn() {
     handleSubmit,
 
     formState: { errors },
-  } = useForm<SignInFormData>({
+  } = useForm({
+    resolver: zodResolver(signInSchema),
+    // resolver: yupResolver(signInSchema),
     shouldFocusError: true,
     defaultValues: { email: '', password: '' },
   });
