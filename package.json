@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "start": "npx nx serve",
+    "build": "npx nx build",
+    "test": "npx nx test",
+    "lint": "npx nx run lint",
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier --check ."
   },
   "private": true,
   "dependencies": {
@@ -14,6 +17,7 @@
     "@swc/helpers": "^0.5.3",
     "@tanstack/react-query": "^5.17.0",
     "@tanstack/react-query-devtools": "^5.17.0",
+    "axios": "^1.6.3",
     "clsx": "^2.1.0",
     "framer-motion": "^10.17.0",
     "localforage": "^1.10.0",

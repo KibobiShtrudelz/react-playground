@@ -1,4 +1,4 @@
-import styles from './sign-up.module.scss';
+import styles from './sign-up.module.scss'
 
 export function SignUp() {
   return (
@@ -9,5 +9,5 @@ export function SignUp() {
         <form action=""></form>
       </div>
     </div>
-  );
+  )
 }

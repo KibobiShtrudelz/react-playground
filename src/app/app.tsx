@@ -1,29 +1,29 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import clsx from 'clsx';
-import { useLocation, useNavigate } from 'react-router-dom';
+import clsx from 'clsx'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-import { Main, Header } from '../components';
+import { Main, Header } from '../components'
 
-import { useLayout } from '../hooks';
-import { pathnames } from '../constants';
+import { useLayout } from '../hooks'
+import { pathnames } from '../constants'
 
-import styles from './app.module.scss';
+import styles from './app.module.scss'
 
-const { useEffect } = React;
+const { useEffect } = React
 
 export function App() {
-  const location = useLocation();
+  const location = useLocation()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const layoutType = useLayout();
+  const layoutType = useLayout()
 
   useEffect(() => {
     if (location.pathname === pathnames.root) {
-      navigate(pathnames.public.home);
+      navigate(pathnames.public.home)
     }
-  }, [location.pathname, navigate]);
+  }, [location.pathname, navigate])
 
   return (
     <div className={clsx(styles.app, styles[layoutType])}>
@@ -31,5 +31,5 @@ export function App() {
 
       <Main />
     </div>
-  );
+  )
 }

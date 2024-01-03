@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import styles from './header.module.scss';
+import { NavLink } from 'react-router-dom'
+import styles from './header.module.scss'
 
 export function Header() {
   return (
@@ -13,5 +13,5 @@ export function Header() {
         <NavLink to="/sign-in">Sign In</NavLink>
       </section>
     </header>
-  );
+  )
 }

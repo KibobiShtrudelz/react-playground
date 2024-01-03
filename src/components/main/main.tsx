@@ -1,19 +1,19 @@
-import clsx from 'clsx';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import clsx from 'clsx'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
-import { ProtectedRoute } from '../routing';
-import { NavBar, Footer } from '../../components';
-import { Home, About, SignUp, SignIn, Contact, Dashboard } from '../../pages';
+import { ProtectedRoute } from '../routing'
+import { NavBar, Footer } from '../../components'
+import { Home, About, SignUp, SignIn, Contact, Dashboard } from '../../pages'
 
-import { useLayout } from '../../hooks';
-import { pathnames } from '../../constants';
+import { useLayout } from '../../hooks'
+import { pathnames } from '../../constants'
 
-import styles from './main.module.scss';
+import styles from './main.module.scss'
 
 export function Main() {
-  const location = useLocation();
+  const location = useLocation()
 
-  const layoutType = useLayout();
+  const layoutType = useLayout()
 
   return (
     <main className={clsx(styles.main, styles[layoutType])}>
@@ -31,14 +31,8 @@ export function Main() {
           <Route path={pathnames.public.contact} element={<Contact />} />
 
           {/* Protected routes */}
-          <Route
-            path={pathnames.protected.dashboard}
-            element={<ProtectedRoute isAuthenticated />}
-          >
-            <Route
-              path={pathnames.protected.dashboard}
-              element={<Dashboard />}
-            />
+          <Route path={pathnames.protected.dashboard} element={<ProtectedRoute isAuthenticated />}>
+            <Route path={pathnames.protected.dashboard} element={<Dashboard />} />
           </Route>
 
           <Route path="*" element={<Dashboard />} />
@@ -47,5 +41,5 @@ export function Main() {
 
       {layoutType === 'common' && <Footer />}
     </main>
-  );
+  )
 }

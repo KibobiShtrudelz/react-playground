@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
+import { render } from '@testing-library/react'
 
-import { NotFound } from './not-found';
+import { NotFound } from './not-found'
 
 describe('NotFound', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<NotFound />);
-    expect(baseElement).toBeTruthy();
-  });
-});
+    const { baseElement } = render(<NotFound />)
+    expect(baseElement).toBeTruthy()
+  })
+})

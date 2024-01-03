@@ -1,4 +1,4 @@
-import styles from './not-found.module.scss';
+import styles from './not-found.module.scss'
 
 export function NotFound() {
   return (
@@ -11,5 +11,5 @@ export function NotFound() {
         </a>
       </div>
     </div>
-  );
+  )
 }

@@ -1,33 +1,32 @@
-import * as React from 'react';
-
-import clsx from 'clsx';
-import { z } from 'zod';
+import clsx from 'clsx'
+import { z } from 'zod'
 // import * as yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom';
-import { useForm, Controller } from 'react-hook-form';
+import { useMutation } from '@tanstack/react-query'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm, Controller } from 'react-hook-form'
 // import { yupResolver } from '@hookform/resolvers/yup';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import { Button, Password, InputText } from '../../../components';
+import { Button, Password, InputText } from '../../../components'
 
-import { regex, pathnames } from '../../../constants';
+import { signInService } from '../../../services'
+import { regex, pathnames } from '../../../constants'
 
-import styles from './sign-in.module.scss';
+import styles from './sign-in.module.scss'
 
-import signInPromoImage from '../../../assets/images/sign-in-promo.jpeg';
+import signInPromoImage from '../../../assets/images/sign-in-promo.jpeg'
 
-type SignInFormData = {
-  email: string;
-  password: string;
-};
+type SignInDto = {
+  email: string
+  password: string
+}
 
-const { useState } = React;
 const signInSchema = z
   .object({
     email: z.string().email(),
-    password: z.string(),
+    password: z.string()
   })
-  .required();
+  .required()
 // const signInSchema = yup
 //   .object({
 //     email: yup.string().email().required(),
@@ -36,38 +35,38 @@ const signInSchema = z
 //   .required();
 
 export function SignIn() {
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
 
-  const navigate = useNavigate();
+  const { mutate, isPending } = useMutation({
+    mutationKey: ['signIn'],
+    mutationFn: signInService,
+    onSuccess: data => {
+      if (data.email) {
+        navigate(pathnames.protected.dashboard)
+      }
+    }
+  })
 
   const {
     control,
     handleSubmit,
 
-    formState: { errors },
+    formState: { errors }
   } = useForm({
     resolver: zodResolver(signInSchema),
     // resolver: yupResolver(signInSchema),
     shouldFocusError: true,
-    defaultValues: { email: '', password: '' },
-  });
+    defaultValues: { email: '', password: '' }
+  })
 
-  const fakeSubmitEndpoint = (data: SignInFormData) => {
-    setLoading(true);
+  const fakeSubmitEndpoint = (data: SignInDto) => mutate(data)
 
-    setTimeout(() => {
-      Promise.resolve(data);
-      setLoading(false);
-      navigate(pathnames.public.home);
-    }, 2000);
-  };
-
-  const getFormErrorMessage = (name: keyof SignInFormData) =>
+  const getFormErrorMessage = (name: keyof SignInDto) =>
     errors[name] ? (
       <small className="p-error">{errors[name]?.message}</small>
     ) : (
       <small className="p-error">&nbsp;</small>
-    );
+    )
 
   return (
     <div className={styles.signIn}>
@@ -86,8 +85,8 @@ export function SignIn() {
 
           <form
             className={styles.signInForm}
-            onSubmit={handleSubmit((data) => {
-              fakeSubmitEndpoint(data);
+            onSubmit={handleSubmit(data => {
+              fakeSubmitEndpoint(data)
             })}
           >
             <Controller
@@ -97,8 +96,8 @@ export function SignIn() {
                 required: 'E-mail is required.',
                 pattern: {
                   value: regex.email,
-                  message: 'Incorrect email format',
-                },
+                  message: 'Incorrect email format'
+                }
               }}
               render={({ field, fieldState }) => (
                 <>
@@ -107,10 +106,10 @@ export function SignIn() {
                     id={field.name}
                     inputMode="email"
                     inputSize="large"
-                    disabled={loading}
                     value={field.value}
+                    disabled={isPending}
                     className={clsx(fieldState.error && 'p-invalid')}
-                    onChange={(e) => field.onChange(e.target.value)}
+                    onChange={e => field.onChange(e.target.value)}
                   />
 
                   {getFormErrorMessage(field.name)}
@@ -129,10 +128,10 @@ export function SignIn() {
                     label="Password"
                     inputSize="large"
                     feedback={false}
-                    disabled={loading}
                     value={field.value}
+                    disabled={isPending}
                     error={errors.password}
-                    onChange={(e) => field.onChange(e.target.value)}
+                    onChange={e => field.onChange(e.target.value)}
                   />
                   {getFormErrorMessage(field.name)}
                 </>
@@ -145,17 +144,16 @@ export function SignIn() {
               size="large"
               label="Pump it"
               iconPos="right"
-              disabled={loading}
-              icon={loading ? 'pi pi-spin pi-spinner' : ''}
+              disabled={isPending}
+              icon={isPending ? 'pi pi-spin pi-spinner' : ''}
             />
           </form>
 
           <small className={styles.signUpText}>
-            Don't have an account?{' '}
-            <Link to={pathnames.authentication.signUp}>Sign Up</Link> now
+            Don't have an account? <Link to={pathnames.authentication.signUp}>Sign Up</Link> now
           </small>
         </section>
       </div>
     </div>
-  );
+  )
 }

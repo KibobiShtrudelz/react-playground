@@ -5,17 +5,17 @@ export const pathnames = {
     signUp: '/sign-up',
     signIn: '/sign-in',
     signOut: '/sign-out',
-    forgetPassword: '/forget-password',
+    forgetPassword: '/forget-password'
   },
 
   public: {
     home: '/home',
     about: '/about',
     contact: '/contact',
-    profile: '/profile',
+    profile: '/profile'
   },
 
   protected: {
-    dashboard: '/dashboard',
-  },
-} as const;
+    dashboard: '/dashboard'
+  }
+} as const

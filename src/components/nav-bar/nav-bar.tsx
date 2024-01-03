@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
-import styles from './nav-bar.module.scss';
+import styles from './nav-bar.module.scss'
 
 export function NavBar() {
   return (
@@ -13,5 +13,5 @@ export function NavBar() {
         <NavLink to="/contact">Contact</NavLink>
       </div>
     </nav>
-  );
+  )
 }

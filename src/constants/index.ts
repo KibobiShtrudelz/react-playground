@@ -1,2 +1,2 @@
-export * from './regex';
-export * from './pathnames';
+export * from './regex'
+export * from './pathnames'

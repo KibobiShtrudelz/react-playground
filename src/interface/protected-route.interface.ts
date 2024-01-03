@@ -1,3 +1,3 @@
 export type ProtectedRouteProps = {
-  isAuthenticated: boolean;
-};
+  isAuthenticated: boolean
+}

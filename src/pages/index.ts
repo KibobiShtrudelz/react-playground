@@ -1,3 +1,3 @@
-export * from './public';
-export * from './protected';
-export * from './authentication';
+export * from './public'
+export * from './protected'
+export * from './authentication'

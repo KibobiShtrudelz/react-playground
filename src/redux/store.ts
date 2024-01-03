@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
-import { testSliceReducer } from './slices/test-slice';
+import { testSliceReducer } from './slices/test-slice'
 
 export const store = configureStore({
   reducer: {
-    test: testSliceReducer,
-  },
-});
+    test: testSliceReducer
+  }
+})
