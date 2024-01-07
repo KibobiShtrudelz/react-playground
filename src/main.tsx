@@ -10,12 +10,12 @@ import { App } from './app/app'
 
 import { store } from './redux/store'
 
-// import 'primereact/resources/themes/saga-purple/theme.css';
+import 'primereact/resources/themes/saga-purple/theme.css'
 // import 'primereact/resources/themes/lara-dark-purple/theme.css';
 // import 'primereact/resources/themes/md-dark-deeppurple/theme.css';
 // import 'primereact/resources/themes/mdc-dark-deeppurple/theme.css';
 // import 'primereact/resources/themes/vela-purple/theme.css'; // Добро е! Бял текст с тъмни инпути
-import 'primereact/resources/themes/arya-purple/theme.css' // Добро е! Бял текст с черни инпути
+// import 'primereact/resources/themes/arya-purple/theme.css' // Добро е! Бял текст с черни инпути
 // import 'primereact/resources/themes/bootstrap4-dark-purple/theme.css';
 import 'primeicons/primeicons.css'
 

@@ -19,6 +19,7 @@
       minmax(var(--padding-inline), 1fr) [full-width-end];
 
     overflow-y: auto;
+    padding: 0 4px 4px 4px; // Keep this in order for the footer's box-shadow to be visible.
   }
 
   .content {

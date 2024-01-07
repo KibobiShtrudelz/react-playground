@@ -4,6 +4,10 @@
 
   display: grid;
 
+  &.addPadding {
+    padding: clamp(16px, 2vw, 24px);
+  }
+
   &.common {
     grid-template-rows: auto 1fr;
     grid-template-areas:

@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 
 import { ProtectedRoute } from '../routing'
 import { NavBar, Footer } from '../../components'
-import { Home, About, SignUp, SignIn, Contact, Dashboard } from '../../pages'
+import { Home, About, SignUp, SignIn, Contact, Dashboard, Landing } from '../../pages'
 
 import { useLayout } from '../../hooks'
 import { pathnames } from '../../constants'
@@ -35,7 +35,7 @@ export function Main() {
             <Route path={pathnames.protected.dashboard} element={<Dashboard />} />
           </Route>
 
-          <Route path="*" element={<Dashboard />} />
+          <Route path="*" element={<Landing />} />
         </Routes>
       </div>
 

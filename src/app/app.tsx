@@ -1,7 +1,5 @@
-import * as React from 'react'
-
 import clsx from 'clsx'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import { Main, Header } from '../components'
 
@@ -10,23 +8,19 @@ import { pathnames } from '../constants'
 
 import styles from './app.module.scss'
 
-const { useEffect } = React
-
 export function App() {
-  const location = useLocation()
-
-  const navigate = useNavigate()
-
   const layoutType = useLayout()
 
-  useEffect(() => {
-    if (location.pathname === pathnames.root) {
-      navigate(pathnames.public.home)
-    }
-  }, [location.pathname, navigate])
+  const { pathname } = useLocation()
+
+  const addPadding = !(
+    pathname.includes(pathnames.authentication.signIn) ||
+    pathname.includes(pathnames.authentication.signUp) ||
+    pathname.includes(pathnames.authentication.forgetPassword)
+  )
 
   return (
-    <div className={clsx(styles.app, styles[layoutType])}>
+    <div className={clsx(styles.app, styles[layoutType], addPadding && styles.addPadding)}>
       {layoutType === 'common' && <Header />}
 
       <Main />
