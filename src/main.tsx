@@ -19,6 +19,8 @@ import 'primereact/resources/themes/saga-purple/theme.css'
 // import 'primereact/resources/themes/bootstrap4-dark-purple/theme.css';
 import 'primeicons/primeicons.css'
 
+import './assets/scss/index.scss'
+
 const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
