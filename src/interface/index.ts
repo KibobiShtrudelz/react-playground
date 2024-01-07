@@ -1,4 +1,5 @@
 export * from './button.interface'
+export * from './carousel.interface'
 export * from './protected-route.interface'
 
 // Form elements interfaces

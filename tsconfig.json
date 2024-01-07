@@ -13,7 +13,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@components": ["src/components/index.ts"],
+      "@constants": ["src/constants/index.ts"],
+      "@hooks": ["src/hooks/index.ts"],
+      "@interface": ["src/interface/index.ts"],
+      "@pages": ["src/pages/index.ts"],
+      "@redux": ["src/redux/index.ts"],
+      "@services": ["src/services/index.ts"],
+      "@utils": ["src/utils/index.ts"]
+    },
     "jsx": "react-jsx",
     "allowJs": false,
     "esModuleInterop": false,

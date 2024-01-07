@@ -5,8 +5,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <section className={styles.logoWrapper}>
-        <span>Physique</span>
-        <span>Factory</span>
+        <span>Health</span> <span>Factory</span>
       </section>
 
       <section className={styles.auth}>

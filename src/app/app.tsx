@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 import { useLocation } from 'react-router-dom'
 
-import { Main, Header } from '../components'
+import { Main, Header } from '@components'
 
-import { useLayout } from '../hooks'
-import { pathnames } from '../constants'
+import { useLayout } from '@hooks'
+import { pathnames } from '@constants'
 
 import styles from './app.module.scss'
 

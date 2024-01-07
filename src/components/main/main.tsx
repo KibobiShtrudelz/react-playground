@@ -1,12 +1,11 @@
 import clsx from 'clsx'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
-import { ProtectedRoute } from '../routing'
-import { NavBar, Footer } from '../../components'
-import { Home, About, SignUp, SignIn, Contact, Dashboard, Landing } from '../../pages'
+import { NavBar, Footer, ProtectedRoute } from '@components'
+import { Home, About, SignUp, SignIn, Contact, Dashboard, Landing } from '@pages'
 
-import { useLayout } from '../../hooks'
-import { pathnames } from '../../constants'
+import { useLayout } from '@hooks'
+import { pathnames } from '@constants'
 
 import styles from './main.module.scss'
 
