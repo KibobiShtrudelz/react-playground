@@ -1,7 +1,4 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.card {
+  box-shadow: var(--box-shadow-default);
+  border-radius: var(--border-radius-default);
+}

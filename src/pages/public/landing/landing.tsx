@@ -1,4 +1,4 @@
-import { Carousel } from '@components'
+import { Card, Carousel } from '@components'
 
 import styles from './landing.module.scss'
 
@@ -23,7 +23,15 @@ export function Landing() {
 
   return (
     <div className={styles.landing}>
-      <Carousel value={[]} numVisible={3} numScroll={3} itemTemplate={productTemplate} />
+      <section className={styles.carouselSection}>
+        <Carousel value={[]} numVisible={3} numScroll={3} itemTemplate={productTemplate} />
+      </section>
+
+      <section className={styles.classesSection}>
+        {[0, 1, 2, 3].map((trainingClass, idx) => (
+          <Card key={idx} />
+        ))}
+      </section>
     </div>
   )
 }

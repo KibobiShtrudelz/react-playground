@@ -10,5 +10,3 @@ export function Card(props: CardProps) {
     </div>
   )
 }
-
-export default Card
