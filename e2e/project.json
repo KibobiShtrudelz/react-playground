@@ -9,14 +9,14 @@
       "options": {
         "cypressConfig": "e2e/cypress.config.ts",
         "testingType": "e2e",
-        "devServerTarget": "react-playground:serve"
+        "devServerTarget": "template:serve"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "react-playground:serve:production"
+          "devServerTarget": "template:serve:production"
         },
         "ci": {
-          "devServerTarget": "react-playground:serve-static"
+          "devServerTarget": "template:serve-static"
         }
       }
     },
@@ -25,6 +25,6 @@
       "outputs": ["{options.outputFile}"]
     }
   },
-  "implicitDependencies": ["react-playground"],
+  "implicitDependencies": ["template"],
   "tags": []
 }

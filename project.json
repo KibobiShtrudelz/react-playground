@@ -1,5 +1,5 @@
 {
-  "name": "react-playground",
+  "name": "template",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "./src",
   "projectType": "application",
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/react-playground"
+        "outputPath": "dist/template"
       },
       "configurations": {
         "development": {
@@ -24,15 +24,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "react-playground:build"
+        "buildTarget": "template:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "react-playground:build:development",
+          "buildTarget": "template:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "react-playground:build:production",
+          "buildTarget": "template:build:production",
           "hmr": false
         }
       }
@@ -41,14 +41,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "react-playground:build"
+        "buildTarget": "template:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "react-playground:build:development"
+          "buildTarget": "template:build:development"
         },
         "production": {
-          "buildTarget": "react-playground:build:production"
+          "buildTarget": "template:build:production"
         }
       }
     },
@@ -56,7 +56,7 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "coverage/react-playground"
+        "reportsDirectory": "coverage/template"
       }
     },
     "lint": {
@@ -69,7 +69,7 @@
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "react-playground:build"
+        "buildTarget": "template:build"
       }
     }
   },
