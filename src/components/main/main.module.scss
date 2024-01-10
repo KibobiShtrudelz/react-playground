@@ -3,7 +3,8 @@
 
   &.common {
     display: grid;
-    grid-template-rows: auto 1fr 200px;
+    gap: var(--gutter-m);
+    grid-template-rows: fit-content 1fr fit-content;
     grid-template-areas:
       'navigation'
       'content'
@@ -11,8 +12,6 @@
   }
 
   .content {
-    border: 5px dashed orange;
-
     grid-area: content;
 
     &.common {

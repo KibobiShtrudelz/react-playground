@@ -28,7 +28,7 @@ export function Landing() {
       </section>
 
       <section className={styles.cardsSection}>
-        {Array.from({ length: 20 }).map((trainingClass, idx) => (
+        {Array.from({ length: 30 }).map((trainingClass, idx) => (
           <Card key={idx} />
         ))}
       </section>

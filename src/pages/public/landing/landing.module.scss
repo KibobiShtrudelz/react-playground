@@ -11,15 +11,15 @@
   height: 100%;
 
   .carouselSection {
-    border: 5px dashed blue;
-
     grid-area: carouselSection;
   }
 
   .cardsSection {
-    border: 5px dashed red;
-
     grid-area: cardsSection;
     height: 100%;
+
+    display: grid;
+    gap: var(--gutter-m);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
