@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 import { NavBar, Footer, ProtectedRoute } from '@components'
-import { Home, About, SignUp, SignIn, Contact, Dashboard, Landing } from '@pages'
+import { Home, About, SignUp, SignIn, Contact, Landing, Dashboard } from '@pages'
 
 import { useLayout } from '@hooks'
 import { pathnames } from '@constants'
@@ -25,6 +25,7 @@ export function Main() {
           <Route path={pathnames.authentication.signIn} element={<SignIn />} />
 
           {/* Public routes */}
+          <Route path={pathnames.root} element={<Landing />} />
           <Route path={pathnames.public.home} element={<Home />} />
           <Route path={pathnames.public.about} element={<About />} />
           <Route path={pathnames.public.contact} element={<Contact />} />

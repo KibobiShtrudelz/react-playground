@@ -1,7 +1,25 @@
 .landing {
+  border: 5px dashed blueviolet;
+
+  display: grid;
+  gap: var(--gutter-m);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'carouselSection'
+    'cardsSection';
+
+  height: 100%;
+
   .carouselSection {
+    border: 5px dashed blue;
+
+    grid-area: carouselSection;
   }
 
-  .classesSection {
+  .cardsSection {
+    border: 5px dashed red;
+
+    grid-area: cardsSection;
+    height: 100%;
   }
 }

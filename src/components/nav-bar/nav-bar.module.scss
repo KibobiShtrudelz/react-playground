@@ -1,14 +1,11 @@
 .navBar {
-  // border: 1px solid;
-
-  grid-column: full-width;
+  grid-area: navigation;
 
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  height: 100px;
-  padding: var(--padding-default);
+  padding: var(--padding-m);
 
   .navLinks {
     display: flex;

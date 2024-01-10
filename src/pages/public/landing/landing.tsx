@@ -27,8 +27,8 @@ export function Landing() {
         <Carousel value={[]} numVisible={3} numScroll={3} itemTemplate={productTemplate} />
       </section>
 
-      <section className={styles.classesSection}>
-        {[0, 1, 2, 3].map((trainingClass, idx) => (
+      <section className={styles.cardsSection}>
+        {Array.from({ length: 20 }).map((trainingClass, idx) => (
           <Card key={idx} />
         ))}
       </section>
