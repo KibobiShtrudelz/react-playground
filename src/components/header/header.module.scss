@@ -10,28 +10,13 @@
   padding-inline: var(--padding-default);
 
   .logoWrapper {
-    display: flex;
-
     span {
-      flex: 1;
-
       padding: 6px;
       width: 100px;
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: 600;
       text-align: center;
-
-      &:first-child {
-        color: #fff;
-        background-color: red;
-        border-top-left-radius: 6px;
-        border-bottom-left-radius: 6px;
-      }
-
-      &:last-child {
-        color: #fff;
-        background-color: blue;
-        border-top-right-radius: 6px;
-        border-bottom-right-radius: 6px;
-      }
     }
   }
 

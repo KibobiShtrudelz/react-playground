@@ -6,9 +6,9 @@ export function NavBar() {
   return (
     <nav className={styles.navBar}>
       <div className={styles.navLinks}>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-
         <NavLink to="/home">Home</NavLink>
+
+        <NavLink to="/dashboard">Dashboard</NavLink>
 
         <NavLink to="/about">About</NavLink>
 
